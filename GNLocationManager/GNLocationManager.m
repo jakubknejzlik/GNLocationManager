@@ -91,15 +91,18 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(GNLocationManager,sharedInstanc
     if (!self.locationObservers) {
         self.locationObservers = [NSMutableArray array];
     }
-    [self.locationObservers addObject:observer];
+    [self.locationObservers addObject:[NSValue valueWithNonretainedObject:observer]];
     [self startUpdatingLocation];
 }
 -(void)removeLocationObserver:(id<GNLocationObserver>)observer{
-    [self.locationObservers removeObject:observer];
+    for (NSValue *p in [self.locationObservers copy]) {
+        if([p nonretainedObjectValue] == observer)[self.locationObservers removeObject:p];
+    }
     [self stopUpdatingLocationIfShould];
 }
 -(void)notifyObserversWithNewLocation:(CLLocation *)location{
-    for (id<GNLocationObserver> observer in self.locationObservers) {
+    for (NSValue *p in self.locationObservers) {
+        id<GNLocationObserver> observer = [p nonretainedObjectValue];
         if([self newLocation:location shouldReplaceLocationForObserver:observer]){
             [self setLocation:location forObserver:observer];
             [observer locationManager:self didUpdateCurrentLocation:location];
@@ -107,7 +110,8 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(GNLocationManager,sharedInstanc
     }
 }
 -(void)notifyObserversWithError:(NSError *)error{
-    for (id<GNLocationObserver> observer in self.locationObservers) {
+    for (NSValue *p in self.locationObservers) {
+        id<GNLocationObserver> observer = [p nonretainedObjectValue];
         if([observer respondsToSelector:@selector(locationManager:didFailWithError:)])
             [observer locationManager:self didFailWithError:error];
     }

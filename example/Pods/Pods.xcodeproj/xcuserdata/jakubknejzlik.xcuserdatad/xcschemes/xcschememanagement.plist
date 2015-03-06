@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-GNLocationManagerExample-CWLSynthesizeSingleton.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-GNLocationManagerExample.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-GNLocationManagerExampleTests-CWLSynthesizeSingleton.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-GNLocationManagerExampleTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>0767FDD55CD555B59DE4AFB6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2CF599B2953141DA1F247DE4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4616E8072AFC8117B6212B2B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8B6961DC543F87CA28BAC2FA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

@@ -1,0 +1,5 @@
+language: objective-c
+
+xcode_scheme: GNLocationManagerExample
+xcode_workspace: example/GNLocationManager.xcworkspace
+xcode_sdk: iphonesimulator

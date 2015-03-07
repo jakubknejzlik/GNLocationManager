@@ -22,6 +22,8 @@
 
 +(GNLocationManager *)sharedInstance;
 
++(BOOL)locationServicesEnabled;
+
 -(void)invalidateCurrentLocation;
 
 -(void)currentLocationWithCompletionHandler:(void (^)(CLLocation *currentLocation,NSError *error))completionHandler;

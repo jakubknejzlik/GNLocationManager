@@ -17,6 +17,7 @@
 		EE021E9F1AA9ED0D00338D45 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE021E9D1AA9ED0D00338D45 /* LaunchScreen.xib */; };
 		EE021EAB1AA9ED0D00338D45 /* GNLocationManagerExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE021EAA1AA9ED0D00338D45 /* GNLocationManagerExampleTests.m */; };
 		EE021EC01AA9ED7200338D45 /* GNLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EE021EBF1AA9ED7200338D45 /* GNLocationManager.m */; };
+		EE021EC21AAA84F000338D45 /* GNLocationManager.podspec in Resources */ = {isa = PBXBuildFile; fileRef = EE021EC11AAA84F000338D45 /* GNLocationManager.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		EE021EAA1AA9ED0D00338D45 /* GNLocationManagerExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GNLocationManagerExampleTests.m; sourceTree = "<group>"; };
 		EE021EBE1AA9ED7200338D45 /* GNLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GNLocationManager.h; path = ../GNLocationManager/GNLocationManager.h; sourceTree = "<group>"; };
 		EE021EBF1AA9ED7200338D45 /* GNLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GNLocationManager.m; path = ../GNLocationManager/GNLocationManager.m; sourceTree = "<group>"; };
+		EE021EC11AAA84F000338D45 /* GNLocationManager.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GNLocationManager.podspec; path = ../GNLocationManager.podspec; sourceTree = "<group>"; };
 		FA42249175870766DEA1408A /* libPods-GNLocationManagerExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GNLocationManagerExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -96,6 +98,7 @@
 		EE021E821AA9ED0D00338D45 = {
 			isa = PBXGroup;
 			children = (
+				EE021EC11AAA84F000338D45 /* GNLocationManager.podspec */,
 				EE021EB41AA9ED2B00338D45 /* Lib */,
 				EE021E8D1AA9ED0D00338D45 /* GNLocationManagerExample */,
 				EE021EA71AA9ED0D00338D45 /* GNLocationManagerExampleTests */,
@@ -250,6 +253,7 @@
 			files = (
 				EE021E9A1AA9ED0D00338D45 /* Main.storyboard in Resources */,
 				EE021E9F1AA9ED0D00338D45 /* LaunchScreen.xib in Resources */,
+				EE021EC21AAA84F000338D45 /* GNLocationManager.podspec in Resources */,
 				EE021E9C1AA9ED0D00338D45 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

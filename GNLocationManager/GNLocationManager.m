@@ -41,6 +41,10 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(GNLocationManager,sharedInstanc
 }
 
 
++(BOOL)locationServicesEnabled{
+    return [CLLocationManager locationServicesEnabled];
+}
+
 -(void)setLocationValidMaxTimeout:(NSTimeInterval)locationValidMaxTimeout{
     if(locationValidMaxTimeout < 2)NSLog(@"GNLocationManager: locationValidMaxTimeout shouldn't be too small (manager will never be able to load new location as it's never will be valid)");
     _locationValidMaxTimeout = locationValidMaxTimeout;

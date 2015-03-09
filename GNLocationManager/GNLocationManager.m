@@ -36,6 +36,8 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(GNLocationManager,sharedInstanc
         self.locationRefreshMinDistance = 5;
         self.locationManager = [[CLLocationManager alloc] init];
         self.locationManager.delegate = self;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
         if([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationAlwaysUsageDescription"]){
             if([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)])[self.locationManager requestAlwaysAuthorization];
         }else if ([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationWhenInUseUsageDescription"]){
@@ -43,6 +45,7 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(GNLocationManager,sharedInstanc
         }else{
             NSLog(@"[ERROR] The keys NSLocationAlwaysUsageDescription or NSLocationWhenInUseUsageDescription are not defined in your tiapp.xml.  Starting with iOS8 this are required.");
         }
+#pragma clang diagnostic pop
     }
     return self;
 }

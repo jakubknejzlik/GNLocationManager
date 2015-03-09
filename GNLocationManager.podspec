@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "GNLocationManager"
-  s.version      = "0.0.6"
+  s.version      = "0.0.7"
   s.summary      = "Manager for handling locations update easier"
 
   s.description  = <<-DESC
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
   #  When using multiple platforms
   s.ios.deployment_target = "7.1"
-  s.osx.deployment_target = "10.8"
+  #s.osx.deployment_target = "10.8"
 
 
   s.source       = { :git => "https://github.com/jakubknejzlik/GNLocationManager.git", :tag => s.version.to_s }

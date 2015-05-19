@@ -24,6 +24,8 @@
 
 +(BOOL)locationServicesEnabled;
 
+-(void)requestAuthorization;
+
 -(void)invalidateCurrentLocation;
 
 -(void)currentLocationWithCompletionHandler:(void (^)(CLLocation *currentLocation,NSError *error))completionHandler;

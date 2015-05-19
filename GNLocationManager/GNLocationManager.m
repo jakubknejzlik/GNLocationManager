@@ -36,20 +36,24 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(GNLocationManager,sharedInstanc
         self.locationRefreshMinDistance = 5;
         self.locationManager = [[CLLocationManager alloc] init];
         self.locationManager.delegate = self;
-        if([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationAlwaysUsageDescription"]){
-            if([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)])[self.locationManager requestAlwaysAuthorization];
-        }else if ([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationWhenInUseUsageDescription"]){
-            if([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])[self.locationManager requestWhenInUseAuthorization];
-        }else{
-            NSLog(@"[ERROR] The keys NSLocationAlwaysUsageDescription or NSLocationWhenInUseUsageDescription are not defined in your tiapp.xml.  Starting with iOS8 this are required.");
-        }
     }
     return self;
 }
 
 
 +(BOOL)locationServicesEnabled{
+    [GNLocationManager sharedInstance]; // initialize shared instance to force authorizationRequest
     return [CLLocationManager locationServicesEnabled];
+}
+
+-(void)requestAuthorization{
+    if([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationAlwaysUsageDescription"]){
+        if([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)])[self.locationManager requestAlwaysAuthorization];
+    }else if ([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationWhenInUseUsageDescription"]){
+        if([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])[self.locationManager requestWhenInUseAuthorization];
+    }else{
+        NSLog(@"[ERROR] The keys NSLocationAlwaysUsageDescription or NSLocationWhenInUseUsageDescription are not defined in your tiapp.xml.  Starting with iOS8 this are required.");
+    }
 }
 
 -(void)setLocationValidMaxTimeout:(NSTimeInterval)locationValidMaxTimeout{

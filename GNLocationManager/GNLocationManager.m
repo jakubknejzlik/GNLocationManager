@@ -36,6 +36,7 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(GNLocationManager,sharedInstanc
         self.locationRefreshMinDistance = 5;
         self.locationManager = [[CLLocationManager alloc] init];
         self.locationManager.delegate = self;
+        [self requestAuthorization];
     }
     return self;
 }

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "GNLocationManager"
-  s.version      = "0.0.8"
+  s.version      = "0.0.9"
   s.summary      = "Manager for handling locations update easier"
 
   s.description  = <<-DESC

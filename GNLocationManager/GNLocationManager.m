@@ -72,6 +72,9 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(GNLocationManager,sharedInstanc
     [self currentLocationForced:NO withCompletionHandler:completionHandler];
 }
 -(void)currentLocationForced:(BOOL)forced withCompletionHandler:(void (^)(CLLocation *currentLocation,NSError *error))completionHandler{
+    if (![[self class] locationServicesEnabled]) {
+        return completionHandler(nil,[NSError errorWithDomain:@"location services disabled" code:133 userInfo:nil]);
+    }
     if([self isCurrentLocationValid] && !forced){
         completionHandler(self.currentLocation,nil);
     }else{

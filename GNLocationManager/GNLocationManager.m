@@ -75,6 +75,11 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(GNLocationManager,sharedInstanc
     if (![[self class] locationServicesEnabled]) {
         return completionHandler(nil,[NSError errorWithDomain:@"location services disabled" code:133 userInfo:nil]);
     }
+    
+    if (![self isCurrentLocationValid] && self.locationManagerIsUpdatingLocation) {
+        return completionHandler(nil,[NSError errorWithDomain:@"could not retrieve location" code:kCLErrorLocationUnknown userInfo:nil]);
+    }
+    
     if([self isCurrentLocationValid] && !forced){
         completionHandler(self.currentLocation,nil);
     }else{
@@ -133,6 +138,15 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(GNLocationManager,sharedInstanc
         id<GNLocationObserver> observer = [p nonretainedObjectValue];
         if([observer respondsToSelector:@selector(locationManager:didFailWithError:)])
             [observer locationManager:self didFailWithError:error];
+    }
+    switch (error.code) {
+        case kCLErrorDenied:
+            [self stopUpdatingLocation];
+            break;
+            
+        default:
+            [self stopUpdatingLocationIfShould];
+            break;
     }
 }
 -(NSTimeInterval)locationRefreshMinTimeoutFromObserver:(id<GNLocationObserver>)observer{

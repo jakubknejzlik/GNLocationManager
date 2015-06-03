@@ -10,6 +10,11 @@
 
 #import <CWLSynthesizeSingleton.h>
 
+
+
+NSString * const kGNLocationManagerAuthorizationStatusDidUpdateNotification = @"kGNLocationManagerAuthorizationStatusDidUpdateNotification";
+NSString * const kGNLocationManagerAuthorizationStatusNotificationKey = @"kGNLocationManagerAuthorizationStatusNotificationKey";
+
 @interface GNLocationManager ()
 @property (nonatomic,strong) CLLocationManager *locationManager;
 
@@ -39,6 +44,11 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(GNLocationManager,sharedInstanc
         [self requestAuthorization];
     }
     return self;
+}
+
+
+- (CLAuthorizationStatus)authorizationStatus{
+    return [CLLocationManager authorizationStatus];
 }
 
 
@@ -202,6 +212,11 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(GNLocationManager,sharedInstanc
     [self notifyObserversWithNewLocation:newLocation];
     [self stopUpdatingLocationIfShould];
 }
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kGNLocationManagerAuthorizationStatusDidUpdateNotification object:nil userInfo:@{kGNLocationManagerAuthorizationStatusNotificationKey:@(status)}];
+}
+
+
 -(void)startUpdatingLocation{
     if(self.locationManagerIsUpdatingLocation)return;
     [self.locationManager startUpdatingLocation];

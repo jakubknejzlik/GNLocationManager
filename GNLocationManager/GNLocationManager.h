@@ -9,10 +9,21 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
+
+extern NSString * const kGNLocationManagerAuthorizationStatusDidUpdateNotification;
+extern NSString * const kGNLocationManagerAuthorizationStatusNotificationKey;
+
+
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol GNLocationObserver;
 
 @interface GNLocationManager : NSObject<CLLocationManagerDelegate>
+
 @property (nullable,nonatomic,readonly) CLLocation *currentLocation;
+
+@property (nonatomic,readonly) CLAuthorizationStatus authorizationStatus;
+
 /** Maximum timeout until location is marked as invalid. Used when validating current location and location for observers. */
 @property (nonatomic) NSTimeInterval locationValidMaxTimeout;
 /** Minimum timeout to enable location refresh when new is detected. Used when validating current location and location for observers. */
@@ -28,26 +39,25 @@
 
 -(void)invalidateCurrentLocation;
 
--(void)currentLocationWithCompletionHandler:(void (^ __nonnull)(CLLocation * __nullable currentLocation,NSError * __nullable error))completionHandler;
--(void)currentLocationForced:(BOOL)forced withCompletionHandler:(void (^ __nonnull)(CLLocation * __nullable currentLocation,NSError * __nullable error))completionHandler;
+-(void)currentLocationWithCompletionHandler:(void (^)(CLLocation * __nullable currentLocation,NSError * __nullable error))completionHandler;
+-(void)currentLocationForced:(BOOL)forced withCompletionHandler:(void (^)(CLLocation * __nullable currentLocation,NSError * __nullable error))completionHandler;
 
--(void)addLocationObserver:(id<GNLocationObserver> __nonnull )observer;
--(void)removeLocationObserver:(id<GNLocationObserver>  __nonnull )observer;
+-(void)addLocationObserver:(id<GNLocationObserver>)observer;
+-(void)removeLocationObserver:(id<GNLocationObserver>)observer;
 
 
 @end
-
-
 
 
 @protocol GNLocationObserver <NSObject>
--(void)locationManager:(GNLocationManager * __nonnull)locationManager didUpdateCurrentLocation:(CLLocation * __nonnull)currentLocation;
+-(void)locationManager:(GNLocationManager *)locationManager didUpdateCurrentLocation:(CLLocation *)currentLocation;
 
 @optional
--(void)locationManager:(GNLocationManager * __nonnull)locationManager didFailWithError:(NSError * __nonnull)error;
--(NSTimeInterval)locationValidMaxTimeout:(GNLocationManager * __nonnull)locationManager;
--(NSTimeInterval)locationRefreshMinTimeout:(GNLocationManager * __nonnull)locationManager;
--(CLLocationDistance)locationRefreshMinDistance:(GNLocationManager * __nonnull)locationManager;
+-(void)locationManager:(GNLocationManager *)locationManager didFailWithError:(NSError *)error;
+-(NSTimeInterval)locationValidMaxTimeout:(GNLocationManager *)locationManager;
+-(NSTimeInterval)locationRefreshMinTimeout:(GNLocationManager *)locationManager;
+-(CLLocationDistance)locationRefreshMinDistance:(GNLocationManager *)locationManager;
 
 @end
 
+NS_ASSUME_NONNULL_END

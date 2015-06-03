@@ -10,8 +10,8 @@
 #import <CoreLocation/CoreLocation.h>
 
 
-extern NSString * const kGNLocationManagerAuthorizationStatusDidUpdateNotification;
-extern NSString * const kGNLocationManagerAuthorizationStatusNotificationKey;
+extern NSString * __nonnull const kGNLocationManagerAuthorizationStatusDidUpdateNotification;
+extern NSString * __nonnull const kGNLocationManagerAuthorizationStatusNotificationKey;
 
 
 NS_ASSUME_NONNULL_BEGIN

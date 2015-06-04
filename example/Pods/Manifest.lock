@@ -5,6 +5,6 @@ DEPENDENCIES:
   - CWLSynthesizeSingleton (~> 1.0)
 
 SPEC CHECKSUMS:
-  CWLSynthesizeSingleton: 6bf23e662713ad65ee7348ba9ef73e6e87a2626d
+  CWLSynthesizeSingleton: 6ccef3170409e87bc9e49544efdc1ea7713c2849
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.37.2

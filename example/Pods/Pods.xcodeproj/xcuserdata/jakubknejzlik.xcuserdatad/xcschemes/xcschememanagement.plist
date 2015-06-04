@@ -4,17 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-GNLocationManagerExample-CWLSynthesizeSingleton.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-GNLocationManagerExample.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-GNLocationManagerExampleTests-CWLSynthesizeSingleton.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,22 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0767FDD55CD555B59DE4AFB6</key>
+		<key>2A9146A7E43209247CA436FD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2CF599B2953141DA1F247DE4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4616E8072AFC8117B6212B2B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8B6961DC543F87CA28BAC2FA</key>
+		<key>923DC1DCD7EAA2D95167BA10</key>
 		<dict>
 			<key>primary</key>
 			<true/>

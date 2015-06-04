@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Minimum distance to enable location refresh when new is detected. Used when validating location for observers. */
 @property CLLocationDistance locationRefreshMinDistance;
 
-+(nullable GNLocationManager *)sharedInstance;
++(GNLocationManager *)sharedInstance;
 
 +(BOOL)locationServicesEnabled;
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0510"
+   LastUpgradeVersion = "0640"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4616E8072AFC8117B6212B2B"
+               BlueprintIdentifier = "923DC1DCD7EAA2D95167BA10"
                BuildableName = "libPods-GNLocationManagerExampleTests.a"
                BlueprintName = "Pods-GNLocationManagerExampleTests"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.author             = { "Jakub Knejzlik" => "jakub.knejzlik@gmail.com" }
 
   #  When using multiple platforms
-  s.ios.deployment_target = "7.1"
+  s.ios.deployment_target = "7.0"
   #s.osx.deployment_target = "10.8"
 
 
